@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Animación Básica CSS</title>
+    <style>
+        .caja {
+            width: 100px;
+            height: 100px;
+            background: #3498db;
+            position: relative;
+            animation: mover 4s infinite alternate;
+            border-radius: 50px;
+        }
+
+        @keyframes mover {
+            0% {
+                left: 150px;
+                top: 0;
+                background: red;
+             }
+            25%{
+                left: 300px;
+                top: 150px;
+                background: yellow;
+                
+            }
+            50%{
+                left: 150px;
+                top: 300px;
+                background: yellow;
+                
+            }
+            75%{
+                left: 0px;
+                top: 150px;
+                background: yellow;
+                
+            }
+            100% {
+                left: 150px;
+                top: 0px;
+                background: green;
+                
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="caja"></div>
+</body>
+</html>

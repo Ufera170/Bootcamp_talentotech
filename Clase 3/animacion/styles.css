@@ -1,0 +1,15 @@
+.caja {
+    width: 100px;
+    height: 100px;
+    background-color: blue; /* Estado inicial */
+    
+    /* Propiedad de transición: afecta a todas las propiedades que cambien,
+       dura 0.5 segundos y tiene una curva de velocidad 'ease-in-out' */
+    transition: all 0.5s ease-in-out; 
+}
+
+.caja:hover {
+    background-color: red; /* Estado final, se activa al pasar el mouse */
+    width: 150px; /* También cambia el ancho */
+    transform: rotate(45deg); /* Y lo rota */
+}
