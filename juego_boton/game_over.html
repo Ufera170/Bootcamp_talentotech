@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Over</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            //Get elements
+            const goText = document.getElementById('GOtext');
+
+            //Variables
+            let randomColor;
+
+            //Set interval to change color
+            setInterval(() => {
+                randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                goText.style.color = randomColor;
+            }, 500);
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h1 id="GOtext">Congratulation!!!!</h1>
+        <a href="index.html">Volver a intentar</a>
+    </div>
+</body>
+
+</html>

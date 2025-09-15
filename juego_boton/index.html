@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Presiona el boton</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+        .boton{
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            background-color: lightskyblue;
+            top: auto;
+        }
+        .buttomContainer{
+            flex-grow: 1;
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+    </style> 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            //Get Elements
+            const btn = document.getElementById('btn');
+            const hoverCount = document.getElementById('hoverCount');
+
+            //Variables
+            let count = -1;
+
+            //Function to move button
+                function moveButton() {
+                    //Change button position
+                    const x = Math.random() * (window.innerWidth - btn.clientWidth);
+                    const y = Math.random() * (window.innerHeight - btn.clientHeight);
+                    btn.style.position = 'relative';
+                    btn.style.left = `${x}px`;
+                    btn.style.top = `${y}px`;
+
+                    //Update hover count
+                    count++;
+                    hoverCount.textContent = `Hover count: ${parseInt(count)}`;
+                }
+
+            //Event to move button on hover
+            btn.addEventListener('mouseover', moveButton);
+
+            //Initial position
+            moveButton();
+        });
+    </script>
+
+</head>
+<body>
+    <h1>Push the bottom</h1>
+    <p id="hoverCount">Hover count: 0</p>
+    <div class="buttomContainer">
+        <a href="game_over.html" id="btn" ><button class="boton">PUSH ME!!</button></a>
+    </div>
+</body>
+    
+</html>

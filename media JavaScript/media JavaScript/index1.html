@@ -37,6 +37,9 @@
         <button id="alternarVisibilidadBtn" class="boton">Ocultar/Mostrar</button>
     </div>
 
+    <h2 id="colorido">Pusha lo de abajo</h2>
+    <button id="activarColorido" class="boton">Pushar</button>
+
     <script>
         // 1. Obtener elementos del DOM
         const titulo = document.getElementById('titulo');
@@ -44,6 +47,8 @@
         const cambiarColorBtn = document.getElementById('cambiarColorBtn');
         const alternarVisibilidadBtn = document.getElementById('alternarVisibilidadBtn');
         const elementoOcultable = document.getElementById('ocultable');
+        const activarColorido = document.getElementById('activarColorido');
+        const colorido = document.getElementById('colorido');
 
         // 2. Manipular elementos al hacer clic en los botones
         
@@ -70,6 +75,13 @@
                 elementoOcultable.style.display = 'none';
             }
         });
+
+        //Evento para colorizar el texto
+        activarColorido.addEventListener('click',() =>{setInterval(() => {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            colorido.style.color = randomColor;
+            colorido.textContent = 'UwU';
+        }, 500)});
     </script>
 
 </body>
