@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación del DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .boton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        #ocultable {
+            background-color: lightcoral;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Manipulación del DOM con JavaScript</h1>
+
+    <h2 id="titulo">Hola, ¡soy un título!</h2>
+
+    <button id="cambiarTextoBtn" class="boton">Cambiar Título</button>
+    <button id="cambiarColorBtn" class="boton">Cambiar Color del Título</button>
+
+    <div id="ocultable">
+        <p>¡Este texto se puede ocultar y mostrar!</p>
+        <button id="alternarVisibilidadBtn" class="boton">Ocultar/Mostrar</button>
+    </div>
+
+    <script>
+        // 1. Obtener elementos del DOM
+        const titulo = document.getElementById('titulo');
+        const cambiarTextoBtn = document.getElementById('cambiarTextoBtn');
+        const cambiarColorBtn = document.getElementById('cambiarColorBtn');
+        const alternarVisibilidadBtn = document.getElementById('alternarVisibilidadBtn');
+        const elementoOcultable = document.getElementById('ocultable');
+
+        // 2. Manipular elementos al hacer clic en los botones
+        
+        // Evento para cambiar el texto del h2
+        cambiarTextoBtn.addEventListener('click', () => {
+            // Cambiamos la propiedad 'textContent' del elemento
+            titulo.textContent = '¡El texto ha sido cambiado!';
+        });
+
+        // Evento para cambiar el color del h2
+        cambiarColorBtn.addEventListener('click', () => {
+            // Cambiamos la propiedad 'style.color' del elemento
+            titulo.style.color = '#007BFF'; // Azul
+        });
+
+        // Evento para alternar la visibilidad de un div
+        alternarVisibilidadBtn.addEventListener('click', () => {
+            // Verificamos si el elemento está oculto o visible
+            if (elementoOcultable.style.display === 'none') {
+                // Si está oculto, lo mostramos
+                elementoOcultable.style.display = 'block';
+            } else {
+                // Si está visible, lo ocultamos
+                elementoOcultable.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

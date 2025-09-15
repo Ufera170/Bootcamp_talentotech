@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulación Avanzada del DOM</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f4;
+        }
+        #app {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        #entrada-item {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        #agregarBtn {
+            padding: 10px 15px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        #lista-items {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .item-lista {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            background-color: #fff;
+            margin-bottom: 5px;
+        }
+        .item-lista:hover {
+            background-color: #f9f9f9;
+        }
+        .item-lista button {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .completado {
+            text-decoration: line-through;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="app">
+        <h1>Mi Lista de Tareas</h1>
+        <div>
+            <input type="text" id="entrada-item" placeholder="Nueva tarea...">
+            <button id="agregarBtn">Agregar</button>
+        </div>
+        <ul id="lista-items">
+            </ul>
+    </div>
+
+    <script>
+        // 1. Obtener los elementos principales del DOM
+        const entradaItem = document.getElementById('entrada-item');
+        const agregarBtn = document.getElementById('agregarBtn');
+        const listaItems = document.getElementById('lista-items');
+
+        // 2. Función para crear un nuevo elemento en la lista
+        function crearItem(texto) {
+            // Crear el elemento de lista <li>
+            const li = document.createElement('li');
+            li.className = 'item-lista';
+
+            // Crear el texto del elemento
+            const textoItem = document.createElement('span');
+            textoItem.textContent = texto;
+
+            // Crear el botón para eliminar
+            const botonEliminar = document.createElement('button');
+            botonEliminar.textContent = 'Eliminar';
+
+            // Agregar un evento para marcar como completado
+            textoItem.addEventListener('click', () => {
+                textoItem.classList.toggle('completado');
+            });
+
+            // Agregar un evento para eliminar el elemento
+            botonEliminar.addEventListener('click', () => {
+                // Eliminar el elemento padre (el <li>) del DOM
+                listaItems.removeChild(li);
+            });
+
+            // Ensamblar los elementos (insertar el span y el botón dentro del li)
+            li.appendChild(textoItem);
+            li.appendChild(botonEliminar);
+
+            // Devolver el elemento <li> listo para ser agregado a la lista
+            return li;
+        }
+
+        // 3. Evento para agregar un nuevo elemento al hacer clic en el botón "Agregar"
+        agregarBtn.addEventListener('click', () => {
+            const nuevoTexto = entradaItem.value.trim(); // Obtener el texto del input
+
+            if (nuevoTexto !== '') {
+                // Crear el nuevo elemento de la lista usando la función
+                const nuevoItem = crearItem(nuevoTexto);
+                // Agregar el nuevo elemento al <ul>
+                listaItems.appendChild(nuevoItem);
+                // Limpiar el campo de entrada
+                entradaItem.value = '';
+            }
+        });
+
+        // Opcional: Permitir agregar elementos con la tecla "Enter"
+        entradaItem.addEventListener('keypress', (evento) => {
+            if (evento.key === 'Enter') {
+                agregarBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
