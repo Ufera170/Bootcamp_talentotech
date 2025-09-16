@@ -77,11 +77,13 @@
         });
 
         //Evento para colorizar el texto
-        activarColorido.addEventListener('click',() =>{setInterval(() => {
-            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-            colorido.style.color = randomColor;
-            colorido.textContent = 'UwU';
-        }, 500)});
+        activarColorido.addEventListener('click',() =>{
+            setInterval(() => {
+                const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                colorido.style.color = randomColor;
+                colorido.textContent = 'Colorizado!';
+            }, 500)}
+        );
     </script>
 
 </body>
