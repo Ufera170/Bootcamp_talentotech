@@ -1,0 +1,38 @@
+{
+    "Team": "Star Wars Characters",
+    "characters": [
+        {
+            "name": "Leia Organa",
+            "Height": "150",
+            "mass": "49",
+            "hair_color": "brow",
+            "skin_color": "light",
+            "eye_color": "brown",
+            "birth_year": "19BBY",
+            "species": [],
+            "starships": []
+        },
+        {
+            "name": "Boba Fett",
+            "Height": "183",
+            "mass": "78",
+            "hair_color": "black",
+            "skin_color": "white",
+            "eye_color": "brown",
+            "birth_year": "32 ABY",
+            "species": ["human"],
+            "starships": ["Slave 1"]
+        },
+        {
+            "name": "Mace Windu",
+            "Height": "188",
+            "mass": "84",
+            "hair_color": "none",
+            "skin_color": "black",
+            "eye_color": "black",
+            "birth_year": "72 ABY",
+            "species": ["human"],
+            "starships": ["Interceptor Jedi", "Actis Jedi Interceptor"]
+        }
+    ]
+}

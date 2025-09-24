@@ -1,0 +1,118 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(skyblue, lightgreen);
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+header {
+    background: #222;
+    color: #fff;
+    padding: 15px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    background: #5d5454;
+    color: white;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Carretera */
+.road {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: #a9a0a0;
+    border-top: 5px solid #777;
+    z-index: 1;
+}
+
+/* Rayas de la carretera */
+.line {
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    height: 10px;
+    background: repeating-linear-gradient(
+        to right,
+        white 0,
+        white 40px,
+        transparent 40px,
+        transparent 80px
+    );
+    animation: moveRoad 2s linear infinite;
+}
+
+@keyframes moveRoad {
+    from { background-position: 0; }
+    to { background-position: -80px; }
+}
+
+/* Estilo de las motos */
+.moto {
+    position: absolute;
+    bottom: 90px;
+    width: 100px;
+    height: auto;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 2;
+}
+
+.moto {
+position: absolute;
+bottom: 20px;
+width: 180px;
+height: auto;
+animation: moverMoto 8s linear infinite;
+}
+
+/* Animación general */
+@keyframes moverMoto {
+0% { left: -200px; }
+100% { left: 100%; }
+}
+
+/* Moto roja */
+.moto-roja {
+animation-duration: 7s;  /* un poco más rápida */
+animation-delay: 0s;
+}
+
+/* Moto azul */
+.moto-azul {
+animation-duration: 9s;  /* un poco más lenta */
+animation-delay: 1s;
+}
+
+/* Moto verde */
+.moto-verde {
+animation-duration: 8s;  /* velocidad media */
+animation-delay: 2s;
+}
